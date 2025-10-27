@@ -1,14 +1,13 @@
-
 :root{
   --bg:#0a0a0a; --ink:#e9edf4; --muted:#9aa7b6;
   --card:#121318; --line:#1c2129; --chip:#1a1e25;
-  --accent:#d10000; --gold:#f59e0b;
+  --accent:#d10000;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
 a{color:#dbe8ff;text-decoration:none}
 .wrap{max-width:1140px;margin:auto;padding:24px 16px 60px}
-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:12px;flex-wrap:wrap}
 .ttl{font:800 22px/1 Inter;letter-spacing:.2px}
 .nav{display:flex;gap:8px;flex-wrap:wrap}
 .chip{background:var(--chip);border:1px solid var(--line);padding:8px 10px;border-radius:10px;color:#cfd6e3}
