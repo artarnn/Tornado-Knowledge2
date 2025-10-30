@@ -5,45 +5,48 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tornado Collection</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="assets/icons/favicon.ico" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body id="top">
 
-  <!-- Navbar (sticky + anchor) -->
+  <!-- Navbar: kiri | logo center | kanan -->
   <nav class="navbar">
-    <div class="nav-inner">
-      <a href="#twist-fs">Twist FS</a>
-      <a href="#twist-jigging">Jigging</a>
-      <a href="#ljfo">LJFO</a>
-      <a href="#brownze">Brownze</a>
-      <a href="#violent">Violent</a>
-      <a href="#blue-lotus">Blue Lotus</a>
-      <img src="assets/img/logo-tornado.png" alt="Tornado" class="nav-logo"/>
-      <a href="#ultima">Ultima</a>
-      <a href="#voyage">Voyage</a>
-      <a href="#surf">Surf</a>
-      <a href="#babon">Babon</a>
-      <a href="#emerald">Emerald</a>
+    <div class="nav-inner container">
+      <div class="nav-side nav-left">
+        <a href="#twist-fs">Twist FS</a>
+        <a href="#twist-jigging">Jigging</a>
+        <a href="#ljfo">LJFO</a>
+        <a href="#brownze">Brownze</a>
+        <a href="#violent">Violent</a>
+        <a href="#blue-lotus">Blue Lotus</a>
+      </div>
+
+      <a class="nav-logo-center" href="#top" aria-label="Tornado Home">
+        <img src="assets/img/logo-tornado.png" alt="Tornado" />
+      </a>
+
+      <div class="nav-side nav-right">
+        <a href="#ultima">Ultima</a>
+        <a href="#voyage">Voyage</a>
+        <a href="#surf">Surf</a>
+        <a href="#babon">Babon</a>
+        <a href="#emerald">Emerald</a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero container">
     <img class="brand-logo reveal" src="assets/img/logo-tornado.png" alt="Tornado Logo" />
     <h1 class="title reveal">Tornado Collection</h1>
     <p class="subtitle reveal">Shopee Verified Spec v2.3.3 • 2025</p>
   </header>
 
-  <main class="wrap">
+  <main class="wrap container">
     <section class="grid">
 
       <!-- TWIST FS -->
@@ -188,7 +191,7 @@
         </div>
       </article>
 
-      <!-- BLUE LOTUS (gabung SPIN & BC) -->
+      <!-- BLUE LOTUS (SPIN & BC) -->
       <article id="blue-lotus" class="card">
         <img class="product-img reveal" src="assets/img/blue-lotus.jpg" alt="Blue Lotus" />
         <h2>Blue Lotus — (Spinning & Baitcasting)</h2>
@@ -232,7 +235,7 @@
         </div>
       </article>
 
-      <!-- ULTIMA EXTREME (tanpa 562) -->
+      <!-- ULTIMA EXTREME -->
       <article id="ultima" class="card">
         <img class="product-img reveal" src="assets/img/ultima-extreme.jpg" alt="Ultima Extreme" />
         <h2>Ultima Extreme</h2>
@@ -294,7 +297,7 @@
         </div>
       </article>
 
-      <!-- BABON REEL -->
+      <!-- BABON -->
       <article id="babon" class="card">
         <img class="product-img reveal" src="assets/img/babon-reel.jpg" alt="Babon Reel" />
         <h2>Babon Reel</h2>
@@ -315,7 +318,7 @@
         </div>
       </article>
 
-      <!-- EMERALD REEL -->
+      <!-- EMERALD -->
       <article id="emerald" class="card">
         <img class="product-img reveal" src="assets/img/emerald-reel.jpg" alt="Emerald Reel" />
         <h2>Emerald Reel</h2>
@@ -346,7 +349,6 @@
     <p>© Tornado Indonesia 2025 — Verified Shopee Spec v2.3.3</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
