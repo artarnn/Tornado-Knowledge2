@@ -1,169 +1,130 @@
-:root {
-  --bg: #0b0b0b;
-  --card: #151515;
-  --line: #262626;
-  --text: #eaeaea;
-  --muted: #9aa0a6;
-  --accent: #caa24b;
-  --price: #17b26a;
+:root{
+  --bg:#0b0b0b; --card:#151515; --line:#262626; --text:#eaeaea;
+  --muted:#9aa0a6; --accent:#caa24b; --price:#17b26a;
+  --navH:60px;             /* tinggi navbar */
+  --gapX:24px;             /* padding kiri/kanan halaman */
+  --cardRadius:14px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+*{ box-sizing:border-box }
+html{ scroll-behavior:smooth }
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
-/* NAVBAR full width */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(10, 10, 10, 0.9);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
-  width: 100%;
-  padding: 0 24px;
+/* ================= NAVBAR (full width, logo pas di tengah) ================ */
+.navbar{
+  position:sticky; top:0; z-index:50; width:100%;
+  height:var(--navH);
+  background:rgba(10,10,10,.9); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line); padding:8px var(--gapX);
+}
+.nav-inner{
+  height:100%;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px;
+}
+.nav-side{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center }
+.nav-side a{
+  color:#d7d7d7; text-decoration:none; font-size:.9rem; padding:6px 10px;
+  border-radius:999px; border:1px solid transparent; transition:.2s
+}
+.nav-side a:hover{ border-color:#2a2a2a; color:#fff }
+.nav-logo-center{ justify-self:center; display:inline-flex; align-items:center }
+.nav-logo-center img{ width:40px; height:40px; object-fit:contain; opacity:.95 }
+
+/* ================= LAYOUT WRAP & GRID (full width) ======================== */
+.wrap{ padding: calc(var(--navH) + 18px) var(--gapX) 64px; width:100% }
+.grid{
+  display:grid; gap:24px; width:100%;
+  /* min lebar kartu 380px supaya tabel kebaca, sisanya fleksibel */
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%;
+/* ================= CARD ==================================================== */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--cardRadius);
+  padding:18px 20px;
+  transition: box-shadow .25s, transform .2s, border-color .25s;
+  /* biar scroll ke anchor ga ketutup navbar */
+  scroll-margin-top: calc(var(--navH) + 14px);
+}
+.card:hover{
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.03) inset;
+  transform: translateY(-2px);
 }
 
-.nav-side {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
+/* Head: thumbnail + title */
+.card-head{ display:flex; align-items:center; gap:12px; margin-bottom:12px }
+.thumb{
+  width:56px; height:56px; border-radius:10px; object-fit:cover;
+  border:1px solid rgba(255,255,255,.08)
 }
+h2{ margin:0; font-size:1.16rem; color:var(--accent) }
 
-.nav-side a {
-  color: #d7d7d7;
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-}
+/* spesifikasi poin */
+.spec{ margin:8px 0 12px; padding-left:18px; line-height:1.6 }
 
-.nav-side a:hover {
-  border-color: #2a2a2a;
-  color: #fff;
-}
-
-.nav-logo-center img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  opacity: 0.95;
-}
-
-/* GRID FULL WIDTH */
-.wrap {
-  padding: 32px 32px 60px;
-  width: 100%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-  width: 100%;
-}
-
-/* CARD */
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 18px 20px;
-  transition: 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-.card-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.thumb {
-  width: 60px;
-  height: 60px;
+/* ================= TABLE (sticky header + internal scroll) ================ */
+.table-mini{
+  /* tinggi maksimum konten tabel; kalau lebih → scroll di dalam card */
+  max-height: 360px;
+  overflow: auto;
   border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-h2 {
-  font-size: 1.2rem;
-  color: var(--accent);
+/* tampilan tabel */
+.table-mini table{ width:100%; border-collapse:collapse; font-size:.93rem }
+.table-mini th,.table-mini td{
+  padding:8px 8px; text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  line-height:1.35;
+  vertical-align:middle;
 }
 
-.spec {
-  margin: 10px 0;
-  padding-left: 18px;
+/* header tabel nempel saat discroll */
+.table-mini thead th{
+  position: sticky; top: 0; z-index: 2;
+  background:rgba(255,255,255,.05);
+  color:#cfcfcf; font-weight:600;
 }
 
-.table-mini table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.93rem;
+/* pemisah sub-section di tabel (FE/JS, SPIN/BC) */
+.sep{ background:rgba(255,255,255,.06); color:#f0f0f0; font-weight:700; text-align:left }
+.sep td{ text-align:left !important; padding-left:10px }
+
+.hl-price{ color:var(--price); font-weight:700 }
+.note{ display:block; margin-top:8px; color:var(--muted); font-size:.85rem }
+
+/* ================= FOOTER ================================================== */
+.foot{
+  text-align:center; padding:30px 0; color:#a7a7a7;
+  border-top:1px solid var(--line); margin-top:30px
 }
 
-.table-mini th,
-.table-mini td {
-  padding: 9px 8px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+/* ================= RESPONSIVE TWEAKS ====================================== */
+/* Laptop 1366×768: rapetin sedikit biar nyaman */
+@media (max-height: 820px) and (min-width: 1024px){
+  .wrap{ padding: calc(var(--navH) + 12px) var(--gapX) 48px }
+  .card{ padding:16px 18px }
+  .thumb{ width:52px; height:52px }
+  .table-mini{ max-height: 320px }
+  .table-mini th,.table-mini td{ padding:7px 8px; font-size:.9rem }
 }
 
-.table-mini thead th {
-  background: rgba(255, 255, 255, 0.05);
-  color: #cfcfcf;
-  font-weight: 600;
+/* Tablet / layar lebih sempit */
+@media (max-width: 900px){
+  .grid{ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) }
+  .nav-side{ gap:8px }
+  .thumb{ width:52px; height:52px }
 }
 
-.sep {
-  background: rgba(255, 255, 255, 0.06);
-  color: #f0f0f0;
-  font-weight: 700;
-  text-align: left;
-}
-
-.sep td {
-  text-align: left !important;
-  padding-left: 10px;
-}
-
-.hl-price {
-  color: var(--price);
-  font-weight: 700;
-}
-
-.note {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-/* FOOTER */
-.foot {
-  text-align: center;
-  padding: 30px 0;
-  color: #a7a7a7;
-  border-top: 1px solid var(--line);
-  margin-top: 30px;
+/* HP */
+@media (max-width: 560px){
+  :root{ --gapX:16px }
+  .thumb{ width:48px; height:48px }
+  .table-mini{ max-height: 300px }
 }
