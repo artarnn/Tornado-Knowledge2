@@ -152,3 +152,32 @@ h2{ margin:0; font-size:1.16rem; color:var(--accent) }
 .table-mini thead th{
   position: static !important;
 }
+
+/* ===== Cover ala Shopee (gambar besar) ===== */
+.card{ padding-top:0 }                      /* rapihin padding */
+.card .cover{
+  width:100%;
+  aspect-ratio: 1 / 1;                      /* square ala Shopee */
+  object-fit: cover;
+  display:block;
+  border-radius: 14px 14px 0 0;             /* nyambung sama card */
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:#111;                          /* fallback */
+  transition: transform .35s ease;
+}
+.card:hover .cover{ transform: scale(1.01) } /* slight zoom hover */
+
+.card-title{                                 /* judul di bawah cover */
+  margin:12px 0 6px;
+  font-size:1.18rem;
+  color:var(--accent);
+}
+
+/* Sembunyikan head lama kalau masih ada yang ke-skip */
+.card-head{ display:none !important; }
+
+/* Responsif: di HP biar tetap cepat kebaca */
+@media (max-width:560px){
+  .card .cover{ aspect-ratio: 4 / 3 }       /* lebih tinggi dikit di HP */
+  .card-title{ font-size:1.08rem }
+}
