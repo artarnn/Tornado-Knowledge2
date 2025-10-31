@@ -128,3 +128,27 @@ h2{ margin:0; font-size:1.16rem; color:var(--accent) }
   .thumb{ width:48px; height:48px }
   .table-mini{ max-height: 300px }
 }
+
+/* ====== OVERRIDE: 2 kolom & hilangkan scroll di dalam card ====== */
+
+/* Desktop/Laptop: tampilkan 2 kolom yang lebar dan rapi */
+@media (min-width: 901px) {
+  .grid{
+    /* dua kolom besar; kartu min 520px biar tabel mudah dibaca */
+    grid-template-columns: repeat(2, minmax(520px, 1fr));
+    gap: 28px;
+  }
+}
+
+/* Tablet/HP otomatis 1 kolom -> aturan lama sudah meng-handle */
+
+/* Matikan scroll internal pada tabel di dalam card */
+.table-mini{
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Header tabel tidak sticky lagi (biar ikut scroll halaman) */
+.table-mini thead th{
+  position: static !important;
+}
